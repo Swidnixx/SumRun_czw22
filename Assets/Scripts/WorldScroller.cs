@@ -10,16 +10,11 @@ public class WorldScroller : MonoBehaviour
     public GameObject[] tiles;
 
     private float speed;
-    private float spawnPositionX;
-
-    private void Start()
-    {
-        speed = GameManager.instance.worldScrollingSpeed;
-        spawnPositionX = floor2.position.x;
-    }
 
     private void FixedUpdate()
     {
+        speed = GameManager.instance.worldScrollingSpeed;
+
         floor1.position -= new Vector3(speed, 0, 0);
         floor2.position -= new Vector3(speed, 0, 0);
 
@@ -27,8 +22,8 @@ public class WorldScroller : MonoBehaviour
         {
             GameObject tileToCreate = tiles[Random.Range(0, tiles.Length)];
             Transform newTile = Instantiate( 
-                tileToCreate, 
-                new Vector3(spawnPositionX, floor1.position.y, floor1.position.z),
+                tileToCreate, floor2.position +
+                    new Vector3(18.1818f, 0, 0),
                 Quaternion.identity
                 ).transform;
 

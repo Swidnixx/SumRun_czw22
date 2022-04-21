@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     private float score;
     private bool gamePending = true;
 
+    private void Start()
+    {
+        //Application.targetFrameRate = 60;
+    }
+
     private void FixedUpdate()
     {
         score += worldScrollingSpeed;
