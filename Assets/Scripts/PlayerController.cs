@@ -37,9 +37,27 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag( "Obstacle" ))
+        if (collision.CompareTag( "Obstacle" ) && !GameManager.instance.immortality.isActive)
         {
             PlayerKill(); 
+        }
+
+        if(collision.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.CoinCollected();
+        }
+
+        if(collision.CompareTag( "Immortality" ))
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.ImmortalityCollected();
+        }
+
+        if(collision.CompareTag( "Magnet" ))
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.MagnetCollected();
         }
     }
 
