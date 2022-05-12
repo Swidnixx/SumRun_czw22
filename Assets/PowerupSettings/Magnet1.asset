@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   duration: 5
-  range: 1
+  range: 4.5
+  coinSpeed: 0.1
