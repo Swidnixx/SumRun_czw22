@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Battery4
   m_EditorClassIdentifier: 
   isActive: 0
-  duration: 1
-  level: 1
-  upgradeCost: 100
-  speedBoost: 0
+  duration: 20
+  level: 4
+  upgradeCost: 100000
+  speedBoost: 0.4
   nextUpgrade: {fileID: 0}

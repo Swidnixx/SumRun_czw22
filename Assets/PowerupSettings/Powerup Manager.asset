@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0401c5d57b2afe44caefe8dce4b7de67, type: 3}
-  m_Name: New Powerup Manager
+  m_Name: Powerup Manager
   m_EditorClassIdentifier: 
-  currentLevelBattery: {fileID: 0}
-  currentLevelMagnet: {fileID: 0}
+  currentLevelBattery: {fileID: 11400000, guid: abaca47f7bed68b4d9a1b62472a4352a, type: 2}
+  currentLevelMagnet: {fileID: 11400000, guid: 8e444c31678f5874fb27f8b2cd1b2ca7, type: 2}

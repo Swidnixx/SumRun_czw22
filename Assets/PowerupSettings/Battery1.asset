@@ -17,3 +17,4 @@ MonoBehaviour:
   level: 1
   upgradeCost: 100
   speedBoost: 0.1
+  nextUpgrade: {fileID: 11400000, guid: 0622be6f6b660eb4da0bdd51b0ef268a, type: 2}

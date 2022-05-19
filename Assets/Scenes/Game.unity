@@ -1032,6 +1032,7 @@ MonoBehaviour:
   endGamePanel: {fileID: 57689314}
   coinText: {fileID: 727538582}
   worldScrollingSpeed: 0.1
+  powerupManager: {fileID: 11400000, guid: f43ec6b7016aff04c83f8d4e7e699981, type: 2}
   immortality: {fileID: 11400000, guid: ab48e99ac37a3e643b6ba47d4b74733e, type: 2}
   magnet: {fileID: 11400000, guid: 8e444c31678f5874fb27f8b2cd1b2ca7, type: 2}
 --- !u!4 &1687620772

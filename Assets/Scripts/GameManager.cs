@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private int highScore;
 
     // Powerups
+    public PowerupManager powerupManager;
     public Immortality immortality;
     public Magnet magnet;
 
@@ -44,13 +45,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //Application.targetFrameRate = 60;
+        immortality = powerupManager.currentLevelBattery;
+        immortality.isActive = false;
+        magnet.isActive = false;
+
         coins = PlayerPrefs.GetInt("Coins", 0);
         coinText.text = coins.ToString();
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-
-        immortality.isActive = false;
-        magnet.isActive = false;
     }
 
     private void FixedUpdate()
