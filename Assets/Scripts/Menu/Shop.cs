@@ -20,7 +20,8 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        coins = PlayerPrefs.GetInt("Coins", 0);
+        coins = 1500;
+        //coins = PlayerPrefs.GetInt("Coins", 0);
         coinsText.text = coins.ToString();
 
         DisplayBatteryInfo();
@@ -42,6 +43,22 @@ public class Shop : MonoBehaviour
         }
 
         batteryInfoText.text = displayText;
+    }
+
+    public void UpgradeBattery()
+    {
+        if(battery.upgradeCost <= coins)
+        {
+            coins -= battery.upgradeCost;
+            PlayerPrefs.SetInt("Coins", coins);
+            coinsText.text = coins.ToString();
+            battery = battery.nextUpgrade;
+            DisplayBatteryInfo();
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
     }
 
     public void DisplayMagnetInfo()

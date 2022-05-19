@@ -60,5 +60,8 @@ public class Menu : MonoBehaviour
     {
         shopPanel.SetActive(false);
         menuPanel.SetActive(true);
+
+        coins = PlayerPrefs.GetInt("Coins", 0);
+        UpdateUI();
     }
 }
