@@ -16,6 +16,8 @@ public class Shop : MonoBehaviour
     public Text batteryInfoText;
     public Text magnetInfoText;
 
+    public Button batteryUpgradeButton;
+
     private void Start()
     {
         coins = PlayerPrefs.GetInt("Coins", 0);
@@ -28,7 +30,16 @@ public class Shop : MonoBehaviour
     public void DisplayBatteryInfo()
     {
         string displayText = "Level: " + battery.level + "\n";
-        displayText += "Pay " + battery.upgradeCost + " to upgrade";
+
+        if (battery.nextUpgrade == null)
+        {
+            batteryUpgradeButton.interactable = false;
+            displayText += "Max Level!";
+        }
+        else
+        {
+            displayText += "Pay " + battery.upgradeCost + " to upgrade";
+        }
 
         batteryInfoText.text = displayText;
     }

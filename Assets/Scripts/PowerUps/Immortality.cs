@@ -4,4 +4,6 @@ using UnityEngine;
 public class Immortality : Powerup
 {
     public float speedBoost;
+
+    public Immortality nextUpgrade;
 }
