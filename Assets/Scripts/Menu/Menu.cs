@@ -11,11 +11,16 @@ public class Menu : MonoBehaviour
     public Text coinsText;
     public Text soundText;
 
+    public GameObject menuPanel;
+    public GameObject shopPanel;
+
     int highscore;
     int coins;
 
     private void Start()
     {
+        BackToMenu();
+
         highscore = PlayerPrefs.GetInt("HighScore", 0);
         coins = PlayerPrefs.GetInt("Coins", 0);
         UpdateUI();
@@ -37,5 +42,23 @@ public class Menu : MonoBehaviour
     public void SoundToggle()
     {
 
+    }
+
+    public void ExitGame()
+    {
+        // to jest do przetestowania w buildzie gry
+        Application.Quit();
+    }
+
+    public void GoToShop()
+    {
+        menuPanel.SetActive(false);
+        shopPanel.SetActive(true);
+    }
+
+    public void BackToMenu()
+    {
+        shopPanel.SetActive(false);
+        menuPanel.SetActive(true);
     }
 }
