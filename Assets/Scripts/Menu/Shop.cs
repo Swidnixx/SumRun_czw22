@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine;
-
 
 public class Shop : MonoBehaviour
 {
-    public Immortality battery;
-    public Magnet magnet;
+    public PowerupManager powerupManager;
 
     public Text coinsText;
     int coins;
@@ -30,16 +27,16 @@ public class Shop : MonoBehaviour
 
     public void DisplayBatteryInfo()
     {
-        string displayText = "Level: " + battery.level + "\n";
+        string displayText = "Level: " + powerupManager.currentLevelBattery.level + "\n";
 
-        if (battery.nextUpgrade == null)
+        if (powerupManager.currentLevelBattery.nextUpgrade == null)
         {
             batteryUpgradeButton.interactable = false;
             displayText += "Max Level!";
         }
         else
         {
-            displayText += "Pay " + battery.upgradeCost + " to upgrade";
+            displayText += "Pay " + powerupManager.currentLevelBattery.upgradeCost + " to upgrade";
         }
 
         batteryInfoText.text = displayText;
@@ -47,12 +44,12 @@ public class Shop : MonoBehaviour
 
     public void UpgradeBattery()
     {
-        if(battery.upgradeCost <= coins)
+        if(powerupManager.currentLevelBattery.upgradeCost <= coins)
         {
-            coins -= battery.upgradeCost;
+            coins -= powerupManager.currentLevelBattery.upgradeCost;
             PlayerPrefs.SetInt("Coins", coins);
             coinsText.text = coins.ToString();
-            battery = battery.nextUpgrade;
+            powerupManager.currentLevelBattery = powerupManager.currentLevelBattery.nextUpgrade;
             DisplayBatteryInfo();
         }
         else
