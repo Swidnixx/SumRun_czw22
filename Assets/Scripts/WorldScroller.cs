@@ -23,7 +23,7 @@ public class WorldScroller : MonoBehaviour
             GameObject tileToCreate = tiles[Random.Range(0, tiles.Length)];
             Transform newTile = Instantiate( 
                 tileToCreate, floor2.position +
-                    new Vector3(18.1818f, 0, 0),
+                    new Vector3(20f, 0, 0),
                 Quaternion.identity
                 ).transform;
 

@@ -14,11 +14,11 @@ public class Shop : MonoBehaviour
     public Text magnetInfoText;
 
     public Button batteryUpgradeButton;
+    public Button magnetUpgradeButton;
 
     private void Start()
     {
-        coins = 1500;
-        //coins = PlayerPrefs.GetInt("Coins", 0);
+        coins = PlayerPrefs.GetInt("Coins", 0);
         coinsText.text = coins.ToString();
 
         DisplayBatteryInfo();
@@ -60,6 +60,34 @@ public class Shop : MonoBehaviour
 
     public void DisplayMagnetInfo()
     {
+        string displayText = "Level: " + powerupManager.currentLevelMagnet.level + "\n";
 
+        if (powerupManager.currentLevelMagnet.nextUpgrade == null)
+        {
+            magnetUpgradeButton.interactable = false;
+            displayText += "Max Level!";
+        }
+        else
+        {
+            displayText += "Pay " + powerupManager.currentLevelMagnet.upgradeCost + " to upgrade";
+        }
+
+        magnetInfoText.text = displayText;
+    }
+
+    public void UpgradeMagnet()
+    {
+        if (powerupManager.currentLevelMagnet.upgradeCost <= coins)
+        {
+            coins -= powerupManager.currentLevelMagnet.upgradeCost;
+            PlayerPrefs.SetInt("Coins", coins);
+            coinsText.text = coins.ToString();
+            powerupManager.currentLevelMagnet = powerupManager.currentLevelMagnet.nextUpgrade;
+            DisplayMagnetInfo();
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
     }
 }

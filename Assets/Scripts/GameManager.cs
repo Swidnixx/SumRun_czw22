@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         immortality = powerupManager.currentLevelBattery;
+        magnet = powerupManager.currentLevelMagnet;
+
         immortality.isActive = false;
         magnet.isActive = false;
 
