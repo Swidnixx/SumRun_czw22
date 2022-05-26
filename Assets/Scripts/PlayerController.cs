@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         {
             if (OnTheGround())
             {
+                SoundManager.instance.PlayOnceJump();
                 doubleJumped = false;
                 Vector2 jumpForce = new Vector2(0, forceScale);
                 rb.velocity = jumpForce;  
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if(collision.CompareTag("Coin"))
         {
+            SoundManager.instance.PlayCoinGrab();
             Destroy(collision.gameObject);
             GameManager.instance.CoinCollected();
         }
